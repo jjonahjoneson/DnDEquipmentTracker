@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<title>Josh's Super Helpful Inventory Tracker</title>
+<style>
+    .userInput{
+        line-height: 200%;        
+        text-align:center;
+    }
+    .lblRow{
+        text-align:right;
+        vertical-align:top;
+    }
+    .infoRow{
+        text-align:left;
+        width: 74%;
+    }
+    .btns{        
+        text-align:center;
+    }
+</style>
+<body onload="loadFromLocal()">
+    <h2 style="text-align: center;">Josh's Super Helpful Inventory Tracker</h2>
+    <div class="userInput">
+        <table style="display:inline-table;">
+            <!-- Head -->
+            <tr>
+                <td class="lblRow"><label for="head">Head:  </label></td>
+                <td class="infoRow"><input type="text" id="head" name="head" title=""><button id="showHead" title="Show/edit item description" onclick="toggleDescription(0)">+</button><br>
+                <div id="headDescDiv" style="display:none">
+                    <label>Item description:</label><br>
+                    <textarea id="headDesc" rows="3" cols="40" disabled>Click edit below to enter an item description.</textarea>
+                    <br>
+                    <div class="btns"><button id="headSave" disabled onclick="saveEdit(0,0,0)">Save</button>
+                    <button id="headit" onclick="toggleEdit(0,1)">Edit</button></div>
+                </div></td>
+            </tr>    
+            <!-- Body -->
+            <tr>
+                <td class="lblRow"><label for="body">Body:  </label></td>
+                <td class="infoRow"><input type="text" id="body" name="body"><button id="showBody" title="Show/edit item description" onclick="toggleDescription(1)">+</button><br>
+                <div id="bodyDescDiv" style="display:none">
+                    <label>Item description:</label><br>
+                    <textarea id="bodyDesc" rows="3" cols="40" disabled>Click edit below to enter an item description.</textarea>
+                    <br>
+                    <div class="btns"><button id="bodySave" disabled onclick="saveEdit(1,2,1)">Save</button>
+                    <button id="bodyEdit"onclick="toggleEdit(1,3)">Edit</button></div>
+                </div></td>
+            </tr>
+            <!-- Arms/hands -->
+            <tr>
+                <td class="lblRow"><label for="hands">Gloves/Gauntlets:  </label></td>
+                <td class="infoRow"><input type="text" id="hands" name="hands"><button id="showHands" title="Show/edit item description" onclick="toggleDescription(2)">+</button><br>
+                <div id="handsDescDiv" style="display:none">
+                    <label>Item description:</label><br>
+                    <textarea id="handsDesc" rows="3" cols="40" disabled>Click edit below to enter an item description.</textarea>
+                    <br>
+                    <div class="btns"><button id="handsSave" disabled onclick="saveEdit(2,4,2)">Save</button>
+                    <button id="handsEdit" onclick="toggleEdit(2,5)">Edit</button></div>
+                </div></td>
+            </tr>
+            <!-- Legs/feet -->
+            <tr>
+                <td class="lblRow"><label for="boots">Greaves/Boots:  </label></td>
+                <td class="infoRow"><input type="text" id="boots" name="boots"><button id="showBoots" title="Show/edit item description" onclick="toggleDescription(3)">+</button><br>
+                <div id="bootsDescDiv" style="display:none">
+                    <label>Item description:</label><br>
+                    <textarea id="bootsDesc" rows="3" cols="40" disabled>Click edit below to enter an item description.</textarea>
+                    <br>
+                    <div class="btns"><button id="bootsSave" disabled onclick="saveEdit(3,6,3)">Save</button>
+                    <button id="bootsEdit" onclick="toggleEdit(3,7)">Edit</button></div>
+                </div></td>
+            </tr>
+            <!-- Accessories -->
+            <tr>
+                <td class="lblRow"><label for="accessories">Accessories:  </label></td>
+                <td class="infoRow"><input type="text" id="acc1" name="acc1"><button id="showAcc1" title="Show/edit item description" onclick="toggleDescription(4)">+</button><br>
+                    <div id="acc1DescDiv" style="display:none">
+                        <label>Item description:</label><br>
+                        <textarea id="acc1Desc" rows="3" cols="40" disabled>Click edit below to enter an item description.</textarea>
+                        <br>
+                        <div class="btns"><button id="acc1Save" disabled onclick="saveEdit(4,8,4)">Save</button>
+                        <button id="acc1Edit" onclick="toggleEdit(4,9)">Edit</button></div>
+                    </div>
+
+                    <input type="text" id="acc2" name="acc2"><button id="showAcc2" title="Show/edit item description" onclick="toggleDescription(5)">+</button><br>
+                    <div id="acc2DescDiv" style="display:none">
+                        <label>Item description:</label><br>
+                        <textarea id="acc2Desc" rows="3" cols="40" disabled>Click edit below to enter an item description.</textarea>
+                        <br>
+                        <div class="btns"><button id="acc2Save" disabled onclick="saveEdit(5,10,5)">Save</button>
+                        <button id="acc2Edit" onclick="toggleEdit(5,11)">Edit</button></div>
+                    </div>
+
+                    <input type="text" id="acc3" name="acc3"><button id="showAcc3" title="Show/edit item description" onclick="toggleDescription(6)">+</button><br>
+                    <div id="acc3DescDiv" style="display:none">
+                        <label>Item description:</label><br>
+                        <textarea id="acc3Desc" rows="3" cols="40" disabled>Click edit below to enter an item description.</textarea>
+                        <br>
+                        <div class="btns"><button id="acc3Save" disabled onclick="saveEdit(6,12,6)">Save</button>
+                        <button id="acc3Edit" onclick = "toggleEdit(6,13)">Edit</button></div>
+                    </div>
+
+                    <input type="text" id="acc4" name="acc4"><button id="showAcc4" title="Show/edit item description" onclick="toggleDescription(7)">+</button><br>
+                    <div id="acc4DescDiv" style="display:none">
+                        <label>Item description:</label><br>
+                        <textarea id="acc4Desc" rows="3" cols="40" disabled>Click edit below to enter an item description.</textarea>
+                        <br>
+                        <div class="btns"><button id="acc4Save" disabled onclick="saveEdit(7,14,7)">Save</button>
+                        <button id="acc4Edit" onclick="toggleEdit(7,15)">Edit</button></div>
+                    </div></td>
+            </tr>
+    </table>
+    </div>
+    <div id="buttons" class="btns">
+        <button id="saveAll">Save</button>
+        <button id="clearAll" onclick="clearAll()">Clear All</button>
+    </div>
+</body>
+<script>
+    /*
+    list of elements:    
+    == Text Fields ==
+    0: head
+    1: body
+    2: hands
+    3: boots
+    4: acc1
+    5: acc2
+    6: acc3
+    7: acc4
+
+    == Description Dividers ==
+    0: headDescDiv
+    1: bodyDescDiv
+    2: handsDescDiv
+    3: bootsDescDiv
+    4: acc1DescDiv
+    5: acc2DescDiv
+    6: acc3DescDiv
+    7: acc4DescDiv
+
+    == Description Fields ==
+    0: headDesc
+    1: bodyDesc
+    2: handsDesc
+    3: bootsDesc
+    4: acc1Desc
+    5: acc2Desc
+    6: acc3Desc
+    7: acc4Desc
+    
+    == Buttons ==
+    0: headSave
+    1: headit
+    2: bodySave
+    3: bodyEdit
+    4: handsSave
+    5: handsEdit
+    6: bootsSave
+    7: bootsEdit
+    8: acc1Save
+    9: acc1Edit
+    10: acc2Save
+    11: acc2Edit
+    12: acc3Save
+    13: acc3Edit
+    14: acc4Save
+    15: acc4Edit
+    16: saveAll
+    17: clearAll
+    */
+    let textFields = ["head","body","hands", "boots", "acc1","acc2","acc3","acc4"];
+    let descDivs = ["headDescDiv","bodyDescDiv","handsDescDiv","bootsDescDiv","acc1DescDiv","acc2DescDiv","acc3DescDiv","acc4DescDiv"];
+    let descFields = ["headDesc","bodyDesc","handsDesc","bootsDesc","acc1Desc","acc2Desc","acc3Desc","acc4Desc"];
+    let btnList = ["headSave","headit","bodySave","bodyEdit","handsSave","handsEdit","bootsSave","bootsEdit","acc1Save","acc1Edit","acc2Save","acc2Edit",
+                    "acc3Save","acc3Edit","acc4Save","acc4Edit","saveAll","clearAll"];
+
+    function toggleDescription(selector){
+        let elem = document.getElementById(descDivs[selector])
+
+        if(elem.style.display === "none")
+            elem.style.display = "block";
+        else
+            elem.style.display = "none";
+    }
+
+    function toggleEdit(fSelector, bSelector){
+        //enable the text area
+        //disable the edit button
+        //enable the save button
+        //add a cancel button?
+        let field = document.getElementById(descFields[fSelector])
+        let eBtn = document.getElementById(btnList[bSelector])
+        let sBtn = document.getElementById(btnList[bSelector - 1])
+
+        field.disabled = false;
+        eBtn.disabled = true;
+        sBtn.disabled = false;
+    }//end toggleEdit
+
+    function saveEdit(fSelector, bSelector, lSelector){
+        //set title of text field to value of text area
+        //disable text area
+        //disable save
+        //enable edit
+        let field = document.getElementById(descFields[fSelector])
+        let sBtn = document.getElementById(btnList[bSelector])
+        let eBtn = document.getElementById(btnList[bSelector + 1])
+        let itemDesc = document.getElementById(textFields[lSelector])
+
+        itemDesc.title = field.value;
+        field.disabled = true;
+        sBtn.disabled = true;
+        eBtn.disabled = false;
+
+        window.localStorage.setItem(descFields[fSelector], field.value);
+        console.log(window.localStorage.getItem(descFields[fSelector]));
+    }//end saveEdit
+
+    function clearAll(){
+        //hide all divs
+        for(let i = 0; i < descDivs.length; i++){
+            document.getElementById(descDivs[i]).style.display = "none";
+        }
+        //clear all item fields
+        for(let i = 0; i < textFields.length; i++){
+            elem = document.getElementById(textFields[i]);
+            elem.value = "";
+            elem.title = "";
+        }
+        //clear all description fields
+        for(let i = 0; i < descFields.length; i++){
+            elem = document.getElementById(descFields[i]);
+            elem.disabled = true;
+            elem.value = "Click edit below to enter an item description.";
+        }
+        //reset save and edit buttons
+        for(let i = 0; i < 16; i += 2){
+            document.getElementById(btnList[i]).disabled = true;
+            document.getElementById(btnList[i+1]).disabled = false;
+        }
+    }//end clearAll
+
+    function loadFromLocal(){
+         //load all item fields
+         for(let i = 0; i < textFields.length; i++){
+             if(window.localStorage.getItem(textFields[i]) != null){
+                 console.log("testing");
+                elem = document.getElementById(textFields[i]);
+                elem.value = window.localStorage.getItem(textFields[i]);
+                elem.title = window.localStorage.getItem(descFields[i]);
+             }
+            
+        }
+        //load all description fields
+        for(let i = 0; i < descFields.length; i++){
+            if(window.localStorage.getItem(textFields[i]) != null){
+                console.log("testing");
+                elem = document.getElementById(descFields[i]);
+                elem.value = window.localStorage.getItem(descFields[i]);
+             }
+        }
+    }
+</script>
+</html>
