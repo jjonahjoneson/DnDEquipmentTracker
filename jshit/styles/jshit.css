@@ -1,0 +1,47 @@
+.userInput{
+        line-height: 200%;    
+    }
+.lblRow{
+    text-align:left;
+    vertical-align:top;
+}
+.infoRow{
+     text-align:left;
+     width: 70%;
+     vertical-align:top;
+}
+.btns{        
+     text-align:center;
+}
+.showBtns{
+     height: 24px;
+     width: 24px;
+     line-height: 12px;
+}
+.nameLbl{
+     border: 1px solid #c4c4c4;
+     background-color: white;
+     line-height: 1.34em;
+}
+body {
+     font-family: "Times New Roman", sans-serif;
+     font-size: 14px;
+}
+
+.equip-list-icon-button {
+  background: transparent;
+  padding: 0;
+  color: white;
+  line-height: normal;
+  border: 0;
+  align-self: center;
+}
+
+.equip-list-icon-button > i {
+  margin-right: 0;
+}
+
+.equip-list-icon-button:hover, .equip-list-icon-button:focus {
+  box-shadow: none;
+  text-shadow: 0 0 5px red;
+}
