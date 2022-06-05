@@ -1,0 +1,134 @@
+<form>
+<ul>
+	 <div class="userInput">
+        <table style="display:inline-table;">
+            <!-- Head -->
+            <tr>
+                <td class="lblRow"><label for="head">Head:  </label></td>
+                <td class="infoRow"><input type="text" class="nameLbl" id="head" title="" disabled><br>
+                <div id="headDescDiv" style="display:none">
+                    <label>Item name:</label><br>
+                    <input type="text" id="headField" name="headName" disabled><br>
+                    <label>Item description:</label><br>
+                    <textarea id="headDesc" name="headDesc" rows="3" cols="40" disabled></textarea>
+                    <br>
+                    <div class="btns"><button id="headSave" data-action="update" disabled onclick="saveEdit(0,0,0)">Save</button>
+                    <button id="headit" onclick="toggleEdit(0,1)">Edit</button></div>
+                </div></td>
+		<td class="infoRow"><button id="showHead" class="showBtns" title="Show/edit item description" onclick="toggleDescription(0)">+</button></td>
+            </tr>    
+            <!-- Body -->
+            <tr>
+                <td class="lblRow"><label for="body">Body:  </label></td>
+                <td class="infoRow"><input type="text" class="nameLbl" id="body" title="" disabled><br>
+                <div id="bodyDescDiv" style="display:none">
+                    <label>Item name:</label><br>
+                    <input type="text" id="bodyField" name="bodyName" disabled><br>
+                    <label>Item description:</label><br>
+                    <textarea id="bodyDesc" name="bodyDesc" rows="3" cols="40" disabled></textarea>
+                    <br>
+                    <div class="btns"><button id="bodySave" data-action="update" disabled onclick="saveEdit(1,2,1)">Save</button>
+                    <button id="bodyEdit"onclick="toggleEdit(1,3)">Edit</button></div>
+                </div></td>
+		<td class="infoRow"><button id="showBody" class="showBtns" title="Show/edit item description" onclick="toggleDescription(1)">+</button></td>
+            </tr>
+            <!-- Arms/hands -->
+            <tr>
+                <td class="lblRow"><label for="hands">Gloves/Gauntlets:  </label></td>
+                <td class="infoRow"><input type="text" class="nameLbl" id="hands" title="" disabled><br>
+                <div id="handsDescDiv" style="display:none">
+                    <label>Item name:</label><br>
+                    <input type="text" id="handsField" name="handsName" disabled><br>
+                    <label>Item description:</label><br>
+                    <textarea id="handsDesc" name="handsDesc" rows="3" cols="40" disabled></textarea>
+                    <br>
+                    <div class="btns"><button id="handsSave" data-action="update" disabled onclick="saveEdit(2,4,2)">Save</button>
+                    <button id="handsEdit" onclick="toggleEdit(2,5)">Edit</button></div>
+                </div></td>
+		<td class="infoRow"><button id="showHands" class="showBtns" title="Show/edit item description" onclick="toggleDescription(2)">+</button></td>
+            </tr>
+            <!-- Legs/feet -->
+            <tr>
+                <td class="lblRow"><label for="boots">Greaves/Boots:  </label></td>
+                <td class="infoRow"><input type="text" class="nameLbl" id="boots" title="" disabled><br>
+                <div id="bootsDescDiv" style="display:none">
+                    <label>Item name:</label><br>
+                    <input type="text" id="bootsField" name="bootsName" disabled><br>
+                    <label>Item description:</label><br>
+                    <textarea id="bootsDesc" name="bootsDesc" rows="3" cols="40" disabled></textarea>
+                    <br>
+                    <div class="btns"><button id="bootsSave" data-action="update" disabled onclick="saveEdit(3,6,3)">Save</button>
+                    <button id="bootsEdit" onclick="toggleEdit(3,7)">Edit</button></div>
+                </div></td>
+		<td class="infoRow"><button id="showBoots" class="showBtns" title="Show/edit item description" onclick="toggleDescription(3)">+</button></td>
+            </tr>
+            <!-- Accessories -->
+		<!-- Accessory 1 -->
+            <tr>
+                <td class="lblRow"><label for="accessories">Accessories:  </label></td>
+                <td class="infoRow">
+                    <input type="text" class="nameLbl" id="acc1" title="" disabled><br>
+                    <div id="acc1DescDiv" style="display:none">
+                        <label>Item name:</label><br>
+                        <input type="text" id="acc1Field" name="acc1Name" disabled><br>
+                        <label>Item description:</label><br>
+                        <textarea id="acc1Desc" name="acc1Desc" rows="3" cols="40" disabled></textarea>
+                        <br>
+                        <div class="btns"><button id="acc1Save" data-action="update" disabled onclick="saveEdit(4,8,4)">Save</button>
+                        <button id="acc1Edit" onclick="toggleEdit(4,9)">Edit</button></div>
+                    </div></td>
+		<td class="infoRow"><button id="showAcc1" class="showBtns" title="Show/edit item description" onclick="toggleDescription(4)">+</button></td>
+            </tr>
+		<!-- Accessory 2 -->
+	    <tr>
+                <td class="lblRow"><label></label></td>
+                <td class="infoRow">
+                    <input type="text" class="nameLbl" id="acc2" title="" disabled><br>
+                    <div id="acc2DescDiv" style="display:none">
+                        <label>Item name:</label><br>
+                        <input type="text" id="acc2Field" name="acc2Name" disabled><br>
+                        <label>Item description:</label><br>
+                        <textarea id="acc2Desc" name="acc2Desc" rows="3" cols="40" disabled></textarea>
+                        <br>
+                        <div class="btns"><button id="acc2Save" data-action="update" disabled onclick="saveEdit(5,10,5)">Save</button>
+                        <button id="acc2Edit" onclick="toggleEdit(5,11)">Edit</button></div>
+                    </div></td>
+		<td class="infoRow"><button id="showAcc2" class="showBtns" title="Show/edit item description" onclick="toggleDescription(5)">+</button></td>
+            </tr>
+		<!-- Accessory 3 -->
+	    <tr>
+                <td class="lblRow"><label></label></td>
+                <td class="infoRow"> 
+                    <input type="text" class="nameLbl" id="acc3" title="" disabled><br>
+                    <div id="acc3DescDiv" style="display:none">
+                        <label>Item name:</label><br>
+                        <input type="text" id="acc3Field" name="acc3Name" disabled><br>
+                        <label>Item description:</label><br>
+                        <textarea id="acc3Desc" name="acc3Desc" rows="3" cols="40" disabled></textarea>
+                        <br>
+                        <div class="btns"><button id="acc3Save" data-action="update" disabled onclick="saveEdit(6,12,6)">Save</button>
+                        <button id="acc3Edit" onclick = "toggleEdit(6,13)">Edit</button></div>
+                    </div></td>
+		<td class="infoRow"><button id="showAcc3" class="showBtns" title="Show/edit item description" onclick="toggleDescription(6)">+</button></td>
+            </tr>
+		<!-- Accessory 4 -->
+	   <tr>
+                <td class="lblRow"><label></label></td>
+                <td class="infoRow">               
+
+                    <input type="text" class="nameLbl" id="acc4" title="" disabled><br>
+                    <div id="acc4DescDiv" style="display:none">
+                        <label>Item name:</label><br>
+                        <input type="text" id="acc4Field" name="acc4Name" disabled><br>
+                        <label>Item description:</label><br>
+                        <textarea id="acc4Desc" name="acc4Desc" rows="3" cols="40" disabled></textarea>
+                        <br>
+                        <div class="btns"><button id="acc4Save" data-action="update" disabled onclick="saveEdit(7,14,7)">Save</button>
+                        <button id="acc4Edit" onclick="toggleEdit(7,15)">Edit</button></div>
+                    </div></td>
+		<td class="infoRow"><button id="showAcc4" class="showBtns" title="Show/edit item description" onclick="toggleDescription(7)">+</button></td>
+           </tr>
+    </table>
+    </div>
+</ul>
+</form>
